@@ -1,5 +1,5 @@
  #import socket module
-from socket import *
+from socket import socket, AF_INET, SOCK_STREAM
 import sys # In order to terminate the program
 
 def webServer(port=13331):
@@ -35,7 +35,7 @@ def webServer(port=13331):
 
            connectionSocket.send("\r\n".encode())
            connectionSocket.close()
-       except IOError:
+       except:
            #Send response message for file not found (404)
            #Fill in start
            connectionSocket.send("HTTP/1.0 404 Not Found\r\n".encode())
